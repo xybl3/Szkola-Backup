@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .row{
+        display: flex !important;
+        gap: 1rem;
+        flex-direction: row !important;
+    }
+</style>
+<body>
+    <form action="" method="post">
+        <div class="row">
+            <label for="imie">Imie</label>
+            <input type="text" name="imie" id="imie">
+        </div>
+
+        <div class="row">
+            <label for="nazwisko">nazwisko</label>
+            <input type="text" name="nazwisko" id="nazwisko">
+        </div>
+        <div class="row">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <div class="row">
+            <label for="tel">Nr. Tel</label>
+            <input type="tel" name="tel" id="tel">
+        </div>
+
+        <div class="row">
+            <label for="adres">Adres</label>
+            <input type="text" name="adres" id="adres">
+        </div>
+
+        <div class="row">
+            <label for="przes">Rodzaj przesyłki</label>
+                <label for="paczko">Paczkomat <input id="paczko" type="radio" name="przesylka"  value="Paczkmmat"/></label>
+                <label for="kurier">Kurier <input id="kurier" type="radio" name="przesylka" value="Kurier"/></label>
+                <label for="poczta">Poczta Polska <input id="poczta" type="radio" name="przesylka" value="Poczta"/></label>
+        </div>
+
+        <div class="row">
+            <label for="wersja_gry">Wersja gry</label>
+            <select name="wersja_gry" id="wersja_gry">
+                <option disabled value="Legacy">Legacy</option>
+                <option disabled value="2019">2019</option>
+                <option disabled value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option selected value="2023">2023</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="platforma">Platforma</label>
+            <select name="platforma" id="platforma">
+                <option value="PC">PC</option>
+                <option value="XBOX">XBOX</option>
+                <option disabled value="PS3">PS3</option>
+                <option value="PS4">PS4</option>
+                <option value="PS5">PS5</option>
+            </select>
+        </div>
+        <label for="accept">Zapoznałem się z regulaminem sklepu <input id="accept" type="checkbox" required/></label>
+        <div class="row">
+            <input type="submit" value="Zamów">
+            <input type="reset" value="reset">
+        </div>
+    </form>
+</body>
+</html>
