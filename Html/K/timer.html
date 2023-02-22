@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <input
+      type="number"
+      name="minuty"
+      id="minuty"
+      value="5"
+    /><!-- Tworzysz input do wpisania minut -->
+    <input
+      type="number"
+      name="sekundy"
+      id="sekundy"
+      value="10"
+    /><!-- Tworzysz input do wpisania sekund -->
+    <br />
+    <button onclick="start()">Start</button>
+    <!-- Tworzysz przycisk do startu licznika -->
+
+    <script>
+      const inputMinuty = document.getElementById("minuty"); // Tzw uchwyt do inputa dla minut
+      const inputSekundy = document.getElementById("sekundy"); // Tzw uchwyt do inputa dla sekund
+      let timerInterval; //ustawisz tu potem funkcje setInterval, czyli funkcję, która bedzie wywolywac funkcje przekazana co okreslony czas w milisekundach (1s = 1000ms)
+      let ileMinut; // ustawiamy zmienna dla samych minut w momencie kiedy uzytkownik kliknie przycisk
+      let ileSekund; // ustawiamy zmienna dla samych sekund w momencie kiedy uzytkownik kliknie przycisk
+
+      function odlicz() {
+        if (ileSekund == 0) {
+          // Sprawdzamy warunek, gdzie kiedt sekund zostanie 0
+          ileSekund = 60; // Ustawiamy sekundy na 60, aby potem móc odejmować
+          ileMinut--; // Odejmujemy jedną minutę, poniewaz jedna minuta minela
+        } //Caly warunek if wykonywany raz na 60 sekund
+
+        ileSekund--; // odejmujemy sekunde
+
+        if (ileMinut == 0 && ileSekund == 0) {
+          // to całe sprawdza, czy minut jest 0 i sekund 0, po to aby móc poinformować o zakończeniu timera
+          clearInterval(timerInterval); // Kasujemy interwał, poprzez przekazanie nazwy zmiennej do której przypisaliśmy ten interwał
+          inputMinuty.removeAttribute("disabled"); // Opcjonalnie, włączanie mozliwosci edytowania
+          inputSekundy.removeAttribute("disabled"); // Opcjonalnie, włączanie mozliwosci edytowania
+        }
+
+        inputMinuty.value = ileMinut; // pokazywanie zmian czasu w inpucie
+        inputSekundy.value = ileSekund; // pokazywanie zmian czasu w inpucie
+        inputMinuty.setAttribute("disabled", ""); // Opcjonalnie, włączanie mozliwosci edytowania
+        inputSekundy.setAttribute("disabled", ""); // Opcjonalnie, włączanie mozliwosci edytowania
+      }
+
+      function start() {
+        ileMinut = inputMinuty.value; //przypisywanie minut do wyzszej zmiennej, globalnej
+        ileSekund = inputSekundy.value; //przypisywanie minut do wyzszej zmiennej, globalnej
+        timerInterval = setInterval(odlicz, 1000); //przypisujemy interwał do zmiennej, aby móc go potem odczytać wyzej i zakonczyc
+      }
+    </script>
+  </body>
+</html>
